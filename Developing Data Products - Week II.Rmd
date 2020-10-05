@@ -1,0 +1,33 @@
+---
+title: "Peer-graded Assignment: R Markdown and Leaflet"
+author: "A. Chou"
+date: "05/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Creating a map higlighting two iconic heritage sites in Mumbai, dying out today.
+
+Load the package
+```{r}
+library(leaflet)
+```
+
+Create a link to provide a little bit of relevant information to these heritage sites
+```{r}
+RegalCinema<- c("<a href= 'https://www.livehistoryindia.com/snapshort-histories/2018/11/14/regal-cinema-many-firsts' >Regal Cinema</a>")
+CooperageBandstand<- c("<a href= 'https://www.dnaindia.com/mumbai/report-mumbai-bmc-to-revive-cooperage-bandstand-at-rs-56-lakh-2673939' >Cooperage Bandstand</a>")
+```
+
+Create the map
+```{r}
+iconic_heritage <- leaflet() %>%
+addTiles() %>%
+addMarkers(lat=18.925848, lng=72.828395, popup = CooperageBandstand) %>%
+addMarkers(lat=18.924397,lng=72.832419, popup= RegalCinema) #%>%
+iconic_heritage
+```
